@@ -71,7 +71,11 @@ function renderPlayer(me, player) {
   context.translate(canvasX, canvasY);
   context.rotate(direction);
   context.drawImage(
-    getAsset('ship.svg'),
+      getAsset('pipo-nekonin001.png'),
+      1,
+      1,
+      30,
+      30,
     -PLAYER_RADIUS,
     -PLAYER_RADIUS,
     PLAYER_RADIUS * 2,
