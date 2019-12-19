@@ -24,7 +24,7 @@ function setCanvasDimensions() {
 window.addEventListener('resize', debounce(40, setCanvasDimensions));
 
 function render() {
-  const { me, others, bullets } = getCurrentState();
+  const { me, others } = getCurrentState();
   if (!me) {
     return;
   }
@@ -36,9 +36,6 @@ function render() {
   context.strokeStyle = 'black';
   context.lineWidth = 1;
   context.strokeRect(canvas.width / 2 - me.x, canvas.height / 2 - me.y, MAP_SIZE, MAP_SIZE);
-
-  // Draw all bullets
-  bullets.forEach(renderBullet.bind(null, me));
 
   // Draw all players
   renderPlayer(me, me);
@@ -67,6 +64,7 @@ function renderPlayer(me, player) {
   const { x, y, direction } = player;
   const canvasX = canvas.width / 2 + x - me.x;
   const canvasY = canvas.height / 2 + y - me.y;
+  console.log(canvasX, canvasY);
 
   // Draw ship
   context.save();
@@ -95,17 +93,6 @@ function renderPlayer(me, player) {
     canvasY + PLAYER_RADIUS + 8,
     PLAYER_RADIUS * 2 * (1 - player.hp / PLAYER_MAX_HP),
     2,
-  );
-}
-
-function renderBullet(me, bullet) {
-  const { x, y } = bullet;
-  context.drawImage(
-    getAsset('bullet.svg'),
-    canvas.width / 2 + x - me.x - BULLET_RADIUS,
-    canvas.height / 2 + y - me.y - BULLET_RADIUS,
-    BULLET_RADIUS * 2,
-    BULLET_RADIUS * 2,
   );
 }
 
