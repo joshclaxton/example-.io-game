@@ -25,8 +25,9 @@ class Game {
   }
 
   handleInput(socket, dir) {
+    console.log("game.handleinput", dir)
     if (this.players[socket.id]) {
-      this.players[socket.id].setDirection(dir);
+      this.players[socket.id].setDirection(dir.dir, dir.x, dir.y);
     }
   }
 

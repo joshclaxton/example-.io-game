@@ -45,6 +45,7 @@ function joinGame(username) {
 }
 
 function handleInput(dir) {
+  console.log("server.handleinput", dir)
   game.handleInput(this, dir);
 }
 

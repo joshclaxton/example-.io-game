@@ -35,5 +35,6 @@ export const play = username => {
 };
 
 export const updateDirection = throttle(20, dir => {
+  console.log("networking.updatedirection", dir)
   socket.emit(Constants.MSG_TYPES.INPUT, dir);
 });

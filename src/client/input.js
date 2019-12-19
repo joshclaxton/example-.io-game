@@ -12,20 +12,23 @@ function onTouchInput(e) {
 }
 
 function handleInput(x, y) {
-  const dir = Math.atan2(x - window.innerWidth / 2, window.innerHeight / 2 - y);
-  updateDirection(dir);
+  var newX = x - window.innerWidth / 2;
+  var newY = window.innerHeight / 2 - y;
+  const dir = Math.atan2(newX, newY);
+  console.log(dir, newX, newY);
+  updateDirection({dir, newX, newY});
 }
 
 export function startCapturingInput() {
-  window.addEventListener('mousemove', onMouseInput);
+  // window.addEventListener('mousemove', onMouseInput);
   window.addEventListener('click', onMouseInput);
   window.addEventListener('touchstart', onTouchInput);
-  window.addEventListener('touchmove', onTouchInput);
+  // window.addEventListener('touchmove', onTouchInput);
 }
 
 export function stopCapturingInput() {
-  window.removeEventListener('mousemove', onMouseInput);
+  // window.removeEventListener('mousemove', onMouseInput);
   window.removeEventListener('click', onMouseInput);
   window.removeEventListener('touchstart', onTouchInput);
-  window.removeEventListener('touchmove', onTouchInput);
+  // window.removeEventListener('touchmove', onTouchInput);
 }
