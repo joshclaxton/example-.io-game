@@ -1,9 +1,13 @@
 {
   "ExpandedNodes": [
     "",
+    "\\public",
+    "\\public\\assets",
     "\\src",
-    "\\src\\server"
+    "\\src\\client",
+    "\\src\\server",
+    "\\src\\shared"
   ],
-  "SelectedNode": "\\package.json",
+  "SelectedNode": "\\src\\client\\render.js",
   "PreviewInSolutionExplorer": false
 }
